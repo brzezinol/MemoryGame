@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MemoryGame"
+             x:Class="MemoryGame.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            <Style TargetType="Frame">
+                
+            </Style>
+            <Style x:Key="sl_item" TargetType="StackLayout">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+         
+    </ContentPage.Resources>
+    <StackLayout HorizontalOptions="FillAndExpand"
+                 VerticalOptions="Center">
+        <Grid HorizontalOptions="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0"
+                   Grid.Column="0">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T0_0}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label IsVisible="{Binding GamePlane.T0_0.IsShown}"  
+                           Text="{Binding GamePlane.T0_0.Char}" />
+                    <Label IsVisible="{Binding GamePlane.T0_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                           Text="{Binding GamePlane.T0_0.HiddenChar}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="0"
+                   Grid.Column="1">
+                <StackLayout  Style="{StaticResource sl_item}" >
+                    <Label Text="{Binding GamePlane.T0_1.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="0"
+                   Grid.Column="2">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T0_2.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1"
+                   Grid.Column="0">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T1_0.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1"
+                   Grid.Column="1">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T1_1.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1"
+                   Grid.Column="2">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T1_2.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="2"
+                   Grid.Column="0">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T2_0.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="2"
+                   Grid.Column="1">
+                <StackLayout Style="{StaticResource sl_item}">
+                    <Label Text="{Binding GamePlane.T2_1.Char}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="2"
+                   Grid.Column="2">
+                <StackLayout Style="{StaticResource sl_item}"> 
+                    <Label Text="{Binding GamePlane.T2_2.Char}" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
