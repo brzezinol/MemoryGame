@@ -6,8 +6,13 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:InverseBooleanConverter x:Key="InverseBooleanConverter" />
+            <local:BoolToColorConverter x:Key="ResolvedBoolToColorConverter" TrueColor="LimeGreen" FalseColor="DarkSlateGray" />
             <Style TargetType="Frame">
                 
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="FontSize" Value="50" />
             </Style>
             <Style x:Key="sl_item" TargetType="StackLayout">
                 <Setter Property="HorizontalOptions" Value="Center"/>
@@ -17,11 +22,15 @@
     </ContentPage.Resources>
     <StackLayout HorizontalOptions="FillAndExpand"
                  VerticalOptions="Center">
-        <Grid HorizontalOptions="Center">
+        <Grid HorizontalOptions="Center"
+              Margin="5"
+              RowSpacing="5"
+              ColumnSpacing="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -30,71 +39,254 @@
             </Grid.ColumnDefinitions>
 
             <Frame Grid.Row="0"
-                   Grid.Column="0">
-                <StackLayout Style="{StaticResource sl_item}">
+                   Grid.Column="0"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T0_0.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
                     <StackLayout.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T0_0}"/>
                     </StackLayout.GestureRecognizers>
-                    <Label IsVisible="{Binding GamePlane.T0_0.IsShown}"  
-                           Text="{Binding GamePlane.T0_0.Char}" />
-                    <Label IsVisible="{Binding GamePlane.T0_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
-                           Text="{Binding GamePlane.T0_0.HiddenChar}" />
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T0_0.IsShown}"  
+                               Text="{Binding GamePlane.T0_0.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T0_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T0_0.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="0"
-                   Grid.Column="1">
-                <StackLayout  Style="{StaticResource sl_item}" >
-                    <Label Text="{Binding GamePlane.T0_1.Char}" />
+                   Grid.Column="1"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T0_1.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T0_1}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T0_1.IsShown}"  
+                               Text="{Binding GamePlane.T0_1.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T0_1.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T0_1.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="0"
-                   Grid.Column="2">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T0_2.Char}" />
+                   Grid.Column="2"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T0_2.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T0_2}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T0_2.IsShown}"  
+                               Text="{Binding GamePlane.T0_2.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T0_2.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T0_2.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="1"
-                   Grid.Column="0">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T1_0.Char}" />
+                   Grid.Column="0"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T1_0.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T1_0}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T1_0.IsShown}"  
+                               Text="{Binding GamePlane.T1_0.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T1_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T1_0.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="1"
-                   Grid.Column="1">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T1_1.Char}" />
+                   Grid.Column="1"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T1_1.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T1_1}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T1_1.IsShown}"  
+                               Text="{Binding GamePlane.T1_1.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T1_1.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T1_1.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="1"
-                   Grid.Column="2">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T1_2.Char}" />
+                   Grid.Column="2"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T1_2.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T1_2}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T1_2.IsShown}"  
+                               Text="{Binding GamePlane.T1_2.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T1_2.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T1_2.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="2"
-                   Grid.Column="0">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T2_0.Char}" />
+                   Grid.Column="0"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T2_0.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T2_0}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T2_0.IsShown}"  
+                               Text="{Binding GamePlane.T2_0.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T2_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T2_0.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="2"
-                   Grid.Column="1">
-                <StackLayout Style="{StaticResource sl_item}">
-                    <Label Text="{Binding GamePlane.T2_1.Char}" />
+                   Grid.Column="1"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T2_1.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T2_1}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T2_1.IsShown}"  
+                               Text="{Binding GamePlane.T2_1.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T2_1.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T2_1.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
 
             <Frame Grid.Row="2"
-                   Grid.Column="2">
-                <StackLayout Style="{StaticResource sl_item}"> 
-                    <Label Text="{Binding GamePlane.T2_2.Char}" />
+                   Grid.Column="2"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T2_2.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T2_2}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T2_2.IsShown}"  
+                               Text="{Binding GamePlane.T2_2.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T2_2.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T2_2.HiddenChar}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3"
+                   Grid.Column="0"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T3_0.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T3_0}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T3_0.IsShown}"  
+                               Text="{Binding GamePlane.T3_0.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T3_0.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T3_0.HiddenChar}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3"
+                   Grid.Column="1"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T3_1.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T3_1}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T3_1.IsShown}"  
+                               Text="{Binding GamePlane.T3_1.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T3_1.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T3_1.HiddenChar}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3"
+                   Grid.Column="2"
+                   Padding="0"
+                   CornerRadius="5">
+                <StackLayout Style="{StaticResource sl_item}"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             BackgroundColor="{Binding GamePlane.T3_2.IsResolved, Converter={StaticResource ResolvedBoolToColorConverter}}">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GamePlane.TileClick}" CommandParameter="{Binding GamePlane.T3_2}"/>
+                    </StackLayout.GestureRecognizers>
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="CenterAndExpand">
+                        <Label IsVisible="{Binding GamePlane.T3_2.IsShown}"  
+                               Text="{Binding GamePlane.T3_2.Char}" />
+                        <Label IsVisible="{Binding GamePlane.T3_2.IsShown, Converter={StaticResource InverseBooleanConverter}}"
+                               Text="{Binding GamePlane.T3_2.HiddenChar}" />
+                    </StackLayout>
                 </StackLayout>
             </Frame>
         </Grid>

@@ -18,16 +18,24 @@ namespace MemoryGame
 
         public MainPageViewModel()
         {
-            GamePlane = new MemoryCharsGamePlane();
-            GamePlane.Tiles.Add(new CharGameTileItem("A"));
-            GamePlane.Tiles.Add(new CharGameTileItem("B"));
-            GamePlane.Tiles.Add(new CharGameTileItem("C"));
-            GamePlane.Tiles.Add(new CharGameTileItem("A"));
-            GamePlane.Tiles.Add(new CharGameTileItem("B"));
-            GamePlane.Tiles.Add(new CharGameTileItem("C"));
-            GamePlane.Tiles.Add(new CharGameTileItem("D"));
-            GamePlane.Tiles.Add(new CharGameTileItem("F"));
-            GamePlane.Tiles.Add(new CharGameTileItem("G"));
+            GamePlane = new MemoryCharsGamePlane
+            {
+                Tiles= new List<IGameTile>
+                {
+                    new CharGameTileItem("A"),
+                    new CharGameTileItem("B"),
+                    new CharGameTileItem("C"),
+                    new CharGameTileItem("A"),
+                    new CharGameTileItem("B"),
+                    new CharGameTileItem("C"),
+                    new CharGameTileItem("D"),
+                    new CharGameTileItem("F"),
+                    new CharGameTileItem("G"),
+                    new CharGameTileItem("G"),
+                    new CharGameTileItem("F"),
+                    new CharGameTileItem("D")
+                }
+            };
         }
     }
 }
